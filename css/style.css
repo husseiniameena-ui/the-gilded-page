@@ -1,70 +1,275 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Gilded Page | Home</title>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
-  </style>
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;700&display=swap");
 
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <header>
-    <p class="logo">The Gilded Page</p>
+body {
+  background-color: #f4efe5;
+  color: #263b2c;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="books.html">Books</a>
-      <a href="about.html">About</a>
-      <a href="visit.html">Visit</a>
-    </nav>
-  </header>
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5em 5%;
+  border-bottom: 1px solid #c9b99b;
+}
 
-  <main>
- <section class="intro">
-  <p class="shop-label">Est. 1987</p>
+.logo {
+  font-family: "Abril Fatface", serif;
+  font-size: 1.6em;
+}
 
-  <h1>A shop for the well-read.</h1>
+nav a {
+  color: #263b2c;
+  text-decoration: none;
+  padding: 0 0.5em;
+}
 
-  <p>Discover old favourites and new treasures.</p>
+nav a:hover {
+  color: #8b3a43;
+  text-decoration: underline;
+}
 
-  <a class="button" href="books.html">Explore the Books</a>
-</section>
+main {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-<section class="featured">
-  <h2>A Few Treasures</h2>
-  <p class="section-intro">Stories worth keeping close.</p>
+.intro {
+  padding: 5em 5%;
+  min-height: 500px;
+  background-image:
+    linear-gradient(rgba(38, 59, 44, 0.45), rgba(38, 59, 44, 0.45)),
+    url("../images/shop.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #f4efe5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
 
-  <div class="book-grid">
-    <article class="book">
-      <img src="images/book-03.jpg" alt="A vintage book cover">
-      <h3>Timeless Classics</h3>
-      <p>Beloved stories that never grow old.</p>
-    </article>
+.shop-label {
+  position: absolute;
+  top: 1.5em;
+  right: 5%;
+  border: 1px solid #f4efe5;
+  padding: 0.5em 1em;
+  font-size: 0.8em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
 
-    <article class="book">
-      <img src="images/book-01.jpg" alt="A collection of old books">
-      <h3>Forgotten Gems</h3>
-      <p>Unusual finds waiting to be discovered.</p>
-    </article>
+.button {
+  display: inline-block;
+  margin-top: 1.5em;
+  padding: 0.8em 1.5em;
+  background-color: #f4efe5;
+  color: #263b2c;
+  text-decoration: none;
+  border: 1px solid #c9b99b;
+}
 
-    <article class="book">
-      <img src="images/book-02.jpg" alt="Books arranged on a shelf">
-      <h3>New Discoveries</h3>
-      <p>Your next favourite might be hiding here.</p>
-    </article>
-  </div>
-</section>
+.button:hover {
+  background-color: #c9b99b;
+  color: #263b2c;
+}
 
-  </main>
+.featured {
+  padding: 4em 0;
+}
 
-  <footer>
-    <p>The Gilded Page · An independent bookstore</p>
-  </footer>
+.featured h2 {
+  font-family: "Abril Fatface", serif;
+  font-weight: 400;
+  font-size: 2.5rem;
+  margin-bottom: 0.25em;
+}
 
-</body>
-</html>
+.section-intro {
+  margin-bottom: 2em;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em;
+}
+
+.book {
+  background-color: #fffaf1;
+  padding: 1em;
+  border: 1px solid #c9b99b;
+}
+
+.book img {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  margin-bottom: 1em;
+}
+
+.book h3 {
+  font-family: "Abril Fatface", serif;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+}
+
+.book p {
+  font-size: 0.95rem;
+}
+
+.page-intro {
+  padding: 4em 0 3em;
+  border-bottom: 1px solid #c9b99b;
+}
+
+.page-intro h1 {
+  font-family: "Abril Fatface", serif;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 0.5em;
+}
+
+.page-intro p {
+  max-width: 650px;
+}
+
+.catalogue {
+  padding: 3em 0 5em;
+}
+
+.catalogue h2 {
+  font-family: "Abril Fatface", serif;
+  font-weight: 400;
+  font-size: 2rem;
+  margin-bottom: 1.5em;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3em;
+  align-items: center;
+  padding: 5em 0;
+}
+
+.about-text h1 {
+  font-family: "Abril Fatface", serif;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 0.75em;
+}
+
+.about-text p {
+  margin-bottom: 1.25em;
+}
+
+.eyebrow {
+  color: #8b3a43;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+}
+
+.about-image img {
+  display: block;
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+}
+
+.visit-layout {
+  display: flex;
+  gap: 3em;
+  align-items: flex-start;
+  padding: 4em 0 5em;
+}
+
+.visit-info {
+  flex: 2;
+}
+
+.visit-info h2,
+.visit-note h2 {
+  font-family: "Abril Fatface", serif;
+  font-weight: 400;
+  font-size: 2rem;
+  margin-bottom: 0.75em;
+}
+
+.visit-info h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.visit-info ul {
+  padding-left: 1.5em;
+}
+
+.visit-note {
+  flex: 1;
+  padding: 2em;
+  background-color: #e6dcc9;
+  border: 1px solid #c9b99b;
+}
+
+footer {
+  background-color: #263b2c;
+  color: #f4efe5;
+  padding: 2em 5%;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .book-grid {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5em;
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image img {
+    height: 320px;
+  }
+
+  .visit-layout {
+    flex-direction: column;
+  }
+
+  .visit-info,
+  .visit-note {
+    width: 100%;
+  }
+}
