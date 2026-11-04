@@ -1,12 +1,18 @@
-
 /* Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;700&display=swap");
 
-/* Basic reset */
+/* basic reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Abril Fatface font class from class */
+.abril-fatface-regular {
+  font-family: "Abril Fatface", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 body {
@@ -27,6 +33,7 @@ header {
 
 .logo {
   font-family: "Abril Fatface", serif;
+  font-weight: 400;
   font-size: 1.6em;
 }
 
@@ -34,6 +41,7 @@ nav a {
   color: #263b2c;
   text-decoration: none;
   padding: 0 0.5em;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
@@ -47,6 +55,7 @@ main {
   margin: 0 auto;
 }
 
+
 .intro {
   padding: 5em 5%;
   min-height: 500px;
@@ -57,22 +66,22 @@ main {
   background-position: center;
   background-repeat: no-repeat;
   color: #f4efe5;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+
   position: relative;
 }
 
-.shop-label {
-  position: absolute;
-  top: 1.5em;
-  right: 5%;
-  border: 1px solid #f4efe5;
-  padding: 0.5em 1em;
-  font-size: 0.8em;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+
+
+footer {
+  background-color: #263b2c;
+  color: #f4efe5;
+  padding: 2em 5%;
+  text-align: center;
 }
 
 .button {
@@ -88,6 +97,17 @@ main {
 .button:hover {
   background-color: #c9b99b;
   color: #263b2c;
+}
+
+.shop-label {
+  position: absolute;
+  top: 1.5em;
+  right: 5%;
+  border: 1px solid #f4efe5;
+  padding: 0.5em 1em;
+  font-size: 0.8em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .featured {
@@ -115,7 +135,15 @@ main {
   background-color: #fffaf1;
   padding: 1em;
   border: 1px solid #c9b99b;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.book:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(38, 59, 44, 0.15);
+}
+
+
 
 .book img {
   display: block;
@@ -133,6 +161,24 @@ main {
 
 .book p {
   font-size: 0.95rem;
+}
+
+@media (max-width: 800px) {
+  .book-grid {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5em;
+  }
 }
 
 .page-intro {
@@ -162,6 +208,8 @@ main {
   font-size: 2rem;
   margin-bottom: 1.5em;
 }
+
+
 
 .about-layout {
   display: grid;
@@ -196,6 +244,18 @@ main {
   height: 480px;
   object-fit: cover;
 }
+
+@media (max-width: 800px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image img {
+    height: 320px;
+  }
+}
+
+
 
 .visit-layout {
   display: flex;
@@ -232,38 +292,7 @@ main {
   border: 1px solid #c9b99b;
 }
 
-footer {
-  background-color: #263b2c;
-  color: #f4efe5;
-  padding: 2em 5%;
-  text-align: center;
-}
-
 @media (max-width: 800px) {
-  .book-grid {
-    grid-template-columns: 1fr;
-  }
-
-  header {
-    flex-direction: column;
-    gap: 1em;
-  }
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5em;
-  }
-
-  .about-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .about-image img {
-    height: 320px;
-  }
-
   .visit-layout {
     flex-direction: column;
   }
@@ -271,5 +300,29 @@ footer {
   .visit-info,
   .visit-note {
     width: 100%;
+  }
+}
+
+
+/* Headline animation */
+.tracking-in-expand {
+  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+    filter: blur(30px);
+  }
+
+  40% {
+    opacity: 0.6;
+  }
+
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+    filter: blur(0);
   }
 }
