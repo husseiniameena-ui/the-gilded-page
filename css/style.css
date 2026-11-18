@@ -1,25 +1,29 @@
 /* Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;700&display=swap");
 
-/* basic reset */
+/* Basic reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Abril Fatface font class from class */
+/ Abril Fatface font class from class /
 .abril-fatface-regular {
   font-family: "Abril Fatface", serif;
   font-weight: 400;
   font-style: normal;
 }
 
+html {
+  font-size: calc(16px + 0.390625vw);
+}
+
 body {
   background-color: #f4efe5;
   color: #263b2c;
   font-family: "Inter", sans-serif;
-  font-size: 18px;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
@@ -41,7 +45,6 @@ nav a {
   color: #263b2c;
   text-decoration: none;
   padding: 0 0.5em;
-  transition: color 0.3s ease;
 }
 
 nav a:hover {
@@ -135,15 +138,7 @@ footer {
   background-color: #fffaf1;
   padding: 1em;
   border: 1px solid #c9b99b;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.book:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 18px rgba(38, 59, 44, 0.15);
-}
-
-
 
 .book img {
   display: block;
@@ -164,9 +159,9 @@ footer {
 }
 
 @media (max-width: 800px) {
-  .book-grid {
-    grid-template-columns: 1fr;
-  }
+.book-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
 
   header {
     flex-direction: column;
@@ -304,25 +299,89 @@ footer {
 }
 
 
-/* Headline animation */
-.tracking-in-expand {
-  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+
+/* HEADLINE ANIMATION */
+
+.intro h1 {
+  animation: headlineReveal 1.2s ease-out;
 }
 
-@keyframes tracking-in-expand {
-  0% {
-    letter-spacing: -0.5em;
+@keyframes headlineReveal {
+  from {
     opacity: 0;
-    filter: blur(30px);
+    transform: translateY(1em);
   }
 
-  40% {
-    opacity: 0.6;
-  }
-
-  100% {
-    letter-spacing: normal;
+  to {
     opacity: 1;
-    filter: blur(0);
+    transform: translateY(0);
   }
+}
+
+
+/* MOBILE RESPONSIVE DESIGN */
+
+@media (max-width: 550px) {
+
+  body {
+    font-size: 1rem;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em 4%;
+  }
+
+  .logo {
+    font-size: 1.4em;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4em;
+  }
+
+  nav a {
+    padding: 0.3em;
+    font-size: 0.9em;
+  }
+
+  main {
+    width: 92%;
+  }
+
+  .intro {
+    min-height: 380px;
+    padding: 4em 5%;
+  }
+
+  .intro h1 {
+    font-size: 2.2rem;
+    line-height: 1.15;
+  }
+
+  .shop-label {
+    font-size: 0.65em;
+  }
+
+  .book-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+  }
+
+  .featured h2 {
+    font-size: 2rem;
+  }
+
+  .book img {
+    height: 240px;
+  }
+
+  footer {
+    padding: 1.5em 4%;
+  }
+
 }
