@@ -1,56 +1,86 @@
-/* Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@400;700&display=swap");
 
-/* Basic reset */
+/* GOOGLE FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap");
+
+
+/* THE GILDED PAGE COLOUR PALETTE */
+
+:root {
+  --olive: #344235;
+  --stone: #E9E3D6;
+  --ivory: #F3EEE4;
+  --rose: #7A4A50;
+  --taupe: #B8AA8E;
+  --paper: #DDD4C2;
+}
+
+
+/* BASIC RESET */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/ Abril Fatface font class from class /
+
+/* FONTS */
+
 .abril-fatface-regular {
   font-family: "Abril Fatface", serif;
   font-weight: 400;
   font-style: normal;
 }
 
+
+/* GENERAL STYLING */
+
 html {
   font-size: calc(16px + 0.390625vw);
 }
 
 body {
-  background-color: #f4efe5;
-  color: #263b2c;
-  font-family: "Inter", sans-serif;
+  background-color: var(--stone);
+  color: var(--olive);
+  font-family: "Lora", serif;
   font-size: 1rem;
   line-height: 1.6;
 }
+
+
+/* HEADER AND NAVIGATION */
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5em 5%;
-  border-bottom: 1px solid #c9b99b;
+  background-color: var(--olive);
+  border-bottom: 1px solid var(--taupe);
+  color: var(--ivory);
 }
 
 .logo {
-  font-family: "Abril Fatface", serif;
+  font-family: "Cormorant Garamond", serif;
   font-weight: 400;
   font-size: 1.6em;
+  color: var(--ivory);
 }
 
 nav a {
-  color: #263b2c;
+  color: var(--ivory);
   text-decoration: none;
   padding: 0 0.5em;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color: #8b3a43;
+  color: var(--taupe);
   text-decoration: underline;
 }
+
+
+/* MAIN CONTENT */
 
 main {
   width: 90%;
@@ -59,16 +89,16 @@ main {
 }
 
 
+/* HOMEPAGE INTRO AND VIDEO */
+
 .intro {
   padding: 5em 5%;
   min-height: 500px;
-  background-image:
-    linear-gradient(rgba(38, 59, 44, 0.45), rgba(38, 59, 44, 0.45)),
-    url("../images/shop.jpg");
+ background-color: var(--olive);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: #f4efe5;
+  color: var(--ivory);
 
   display: flex;
   flex-direction: column;
@@ -78,40 +108,101 @@ main {
   position: relative;
 }
 
-
-
-footer {
-  background-color: #263b2c;
-  color: #f4efe5;
-  padding: 2em 5%;
-  text-align: center;
+.intro-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
+
+.intro > *:not(.intro-video) {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* HEADLINE ANIMATION */
+
+.intro h1 {
+  animation: headlineFade 1.5s ease-out both;
+  text-shadow: 2px 3px 8px rgba(0, 0, 0, 0.55);
+}
+
+@keyframes headlineFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* SHOP LABEL */
+
+.shop-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  border: 1px solid var(--ivory);
+  padding: 0.5em 1em;
+  font-size: 0.8em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: rgba(52, 66, 53, 0.75);
+
+  animation: labelFade 1.5s ease-out both;
+  animation-delay: 0.3s;
+}
+
+@keyframes labelFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* BUTTONS */
 
 .button {
   display: inline-block;
   margin-top: 1.5em;
   padding: 0.8em 1.5em;
-  background-color: #f4efe5;
-  color: #263b2c;
+  background-color: var(--ivory);
+  color: var(--olive);
   text-decoration: none;
-  border: 1px solid #c9b99b;
+  border: 1px solid var(--taupe);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .button:hover {
-  background-color: #c9b99b;
-  color: #263b2c;
+  background-color: var(--rose);
+  color: var(--ivory);
 }
 
-.shop-label {
-  position: absolute;
-  top: 1.5em;
-  right: 5%;
-  border: 1px solid #f4efe5;
-  padding: 0.5em 1em;
-  font-size: 0.8em;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+
+/* FOOTER */
+
+footer {
+  background-color: var(--olive);
+  color: var(--ivory);
+  padding: 2em 5%;
+  text-align: center;
 }
+
+
+/* FEATURED BOOKS */
 
 .featured {
   padding: 4em 0;
@@ -135,9 +226,15 @@ footer {
 }
 
 .book {
-  background-color: #fffaf1;
+  background-color: var(--ivory);
   padding: 1em;
-  border: 1px solid #c9b99b;
+  border: 1px solid var(--taupe);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(52, 66, 53, 0.15);
 }
 
 .book img {
@@ -158,27 +255,12 @@ footer {
   font-size: 0.95rem;
 }
 
-@media (max-width: 800px) {
-.book-grid {
-  grid-template-columns: repeat(2, 1fr);
-}
 
-  header {
-    flex-direction: column;
-    gap: 1em;
-  }
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5em;
-  }
-}
+/* INDIVIDUAL PAGE INTRO */
 
 .page-intro {
   padding: 4em 0 3em;
-  border-bottom: 1px solid #c9b99b;
+  border-bottom: 1px solid var(--taupe);
 }
 
 .page-intro h1 {
@@ -193,6 +275,9 @@ footer {
   max-width: 650px;
 }
 
+
+/* BOOK CATALOGUE */
+
 .catalogue {
   padding: 3em 0 5em;
 }
@@ -205,6 +290,7 @@ footer {
 }
 
 
+/* ABOUT PAGE */
 
 .about-layout {
   display: grid;
@@ -227,7 +313,7 @@ footer {
 }
 
 .eyebrow {
-  color: #8b3a43;
+  color: var(--rose);
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 0.8rem;
@@ -240,17 +326,8 @@ footer {
   object-fit: cover;
 }
 
-@media (max-width: 800px) {
-  .about-layout {
-    grid-template-columns: 1fr;
-  }
 
-  .about-image img {
-    height: 320px;
-  }
-}
-
-
+/* VISIT PAGE */
 
 .visit-layout {
   display: flex;
@@ -283,11 +360,109 @@ footer {
 .visit-note {
   flex: 1;
   padding: 2em;
-  background-color: #e6dcc9;
-  border: 1px solid #c9b99b;
+  background-color: var(--paper);
+  border: 1px solid var(--taupe);
 }
 
+
+/* CONTACT FORM */
+
+.contact-section {
+  margin: 4em auto;
+  padding: 3em 2em;
+  max-width: 850px;
+  background-color: var(--ivory);
+  border: 1px solid var(--taupe);
+  text-align: center;
+}
+
+.contact-section h2 {
+  margin-bottom: 0.7em;
+  font-family: "Abril Fatface", serif;
+  font-weight: 400;
+}
+
+.contact-section > p {
+  margin-bottom: 1.5em;
+  line-height: 1.6;
+}
+
+.contact-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 550px;
+  margin: 2em auto 0;
+  text-align: left;
+}
+
+.contact-section label {
+  font-weight: bold;
+  margin-top: 0.7em;
+}
+
+.contact-section input,
+.contact-section textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--taupe);
+  border-radius: 4px;
+  background-color: var(--stone);
+  color: var(--olive);
+  font-family: Inter, sans-serif;
+  font-size: 1rem;
+  transition: border-color 0.3s ease,
+              background-color 0.3s ease;
+}
+
+.contact-section input:focus,
+.contact-section textarea:focus {
+  outline: none;
+  border-color: var(--olive);
+  background-color: #fff;
+}
+
+.contact-section textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-section button {
+  align-self: flex-start;
+  cursor: pointer;
+  font-family: Inter, sans-serif;
+  margin-top: 1em;
+}
+
+
+/* TABLET RESPONSIVE DESIGN */
+
 @media (max-width: 800px) {
+
+  .book-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  header {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5em;
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image img {
+    height: 320px;
+  }
+
   .visit-layout {
     flex-direction: column;
   }
@@ -295,26 +470,6 @@ footer {
   .visit-info,
   .visit-note {
     width: 100%;
-  }
-}
-
-
-
-/* HEADLINE ANIMATION */
-
-.intro h1 {
-  animation: headlineReveal 1.2s ease-out;
-}
-
-@keyframes headlineReveal {
-  from {
-    opacity: 0;
-    transform: translateY(1em);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -384,4 +539,67 @@ footer {
     padding: 1.5em 4%;
   }
 
+  .contact-section {
+    padding: 2em 1em;
+    margin: 2em auto;
+  }
+
+  .contact-section form {
+    width: 100%;
+  }
+}
+
+/* POSITION EST. 1987 IN THE VIDEO CORNER */
+
+.intro {
+  position: relative;
+}
+
+.intro .shop-label {
+  position: absolute;
+  top: 15px;
+  right: 0;
+  left: auto;
+  margin: 0;
+  z-index: 2;
+}
+
+/* SOFT DARK OVERLAY OVER VIDEO */
+
+.intro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(52, 66, 53, 0.45);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.intro > *:not(.intro-video) {
+  position: relative;
+  z-index: 2;
+}
+
+/* KEEP EST. 1987 IN THE TOP-RIGHT CORNER */
+
+.intro .shop-label {
+  position: absolute;
+  top: 15px;
+  right: 0;
+  left: auto;
+  margin: 0;
+  z-index: 3;
+}
+
+/* HOMEPAGE FEATURED SECTION TYPOGRAPHY */
+
+.featured h2,
+.book h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+}
+
+.section-intro,
+.book p {
+  font-family: "Lora", serif;
 }
